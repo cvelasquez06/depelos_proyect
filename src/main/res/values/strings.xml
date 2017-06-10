@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">dePelosApp</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="text_link_register"><u>¿Ya tienes una cuenta? Registrate</u></string>
+</resources>
