@@ -2,45 +2,51 @@ package cl.development.learnproyect.Activities;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-import cl.development.learnproyect.Entity.UserEntity;
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 import cl.development.learnproyect.R;
+import cl.development.learnproyect.Services.UserServices;
 import cl.development.learnproyect.Utilities.MessagesUtilities;
 
 public class LoginActivity extends Activity {
+    @BindView(R.id.loginButton) Button loginButton;
+    @BindView(R.id.linkToRegister) TextView linkToRegister;
+    @BindView(R.id.userLogin) EditText userLogin;
+    @BindView(R.id.passLogin) EditText passLogin;
 
-    public static TextView textViewWelcome;
-    public static UserEntity user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        textViewWelcome = (TextView) findViewById(R.id.TextWelcome);
+        TextView textViewWelcome = (TextView) findViewById(R.id.TextWelcome);
+        ButterKnife.bind(this);
     }
 
     public boolean validateLogin(){
-        EditText user = (EditText) findViewById(R.id.user_login);
-        EditText pass = (EditText) findViewById(R.id.pass_login);
-        if(this.user != null && user.getText().toString().equals(this.user.getEmail()) && pass.getText().toString().equals(this.user.getPassword())){
+        if(UserServices.validateLogin(userLogin.getText().toString(), passLogin.getText().toString())){
             return true;
         }
         Toast toast = MessagesUtilities.messagesToast(LoginActivity.this, "Error de usuario o password");
         toast.show();
         return false;
     }
-
-    public void showRegisterActivity(View view){
-        Intent views1 = new Intent(this, RegisterActivity.class);
-        startActivity(views1);
+    @OnClick(R.id.linkToRegister)
+    public void showRegisterActivity(){
+        Intent activityRegister = new Intent(this, RegisterActivity.class);
+        startActivity(activityRegister);
+        finish();
     }
 
-    public void showHairdresserListActivity(View view) {
+    @OnClick(R.id.loginButton)
+    public void showHairdresserListActivity() {
         if (validateLogin()) {
-            Intent hl = new Intent(LoginActivity.this, HairdresserListActivity.class);
-            startActivity(hl);
+            Intent activityLogin = new Intent(LoginActivity.this, HairdresserListActivity.class);
+            startActivity(activityLogin);
             finish();
         }
     }

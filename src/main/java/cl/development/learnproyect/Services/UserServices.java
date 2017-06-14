@@ -6,36 +6,27 @@ import cl.development.learnproyect.Entity.UserEntity;
  */
 
 public class UserServices {
-
     public static UserEntity createAccount(
             String firstname
             ,String lastname
             ,String email
-            ,String address
-            ,String password
-            ,Boolean customer
-            ,Boolean hairdresser
             ,String imei
     ) {
-        UserEntity user = new UserEntity();
+        UserEntity usuario = new UserEntity();
         if (!firstname.isEmpty()
                 && !lastname.isEmpty()
                 && !email.isEmpty()
-                && !address.isEmpty()
-                && !password.isEmpty()
-                && (customer == true
-                || hairdresser == true)
                 && !imei.isEmpty()){
-            user.setFirstname(firstname);
-            user.setLastname(lastname);
-            user.setEmail(email);
-            user.setAddress(address);
-            user.setPassword(password);
-            user.setCustomer(customer);
-            user.setHairdresser(hairdresser);
-            user.setImei(imei);
+            usuario.setFirstname(firstname);
+            usuario.setLastname(lastname);
+            usuario.setEmail(email);
+            usuario.setImei(imei);
         }
-        return user;
+        return usuario;
+    }
+
+    public static boolean validateLogin(String user, String password){
+       return false;
     }
 
 

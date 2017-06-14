@@ -30,7 +30,7 @@
         android:paddingRight="15dp">
 
         <EditText
-            android:id="@+id/user_login"
+            android:id="@+id/userLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="7"
@@ -40,7 +40,7 @@
             android:maxLines="0"
             />
         <EditText
-            android:id="@+id/pass_login"
+            android:id="@+id/passLogin"
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -52,18 +52,18 @@
             />
     </LinearLayout>
     <Button
+        android:id="@+id/loginButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sign In"
         android:layout_marginTop="20dp"
         android:paddingLeft="70dp"
         android:paddingRight="70dp"
-        android:onClick="showHairdresserListActivity"
         />
     <TextView
         android:textColor="@color/colorBlue"
         android:layout_marginTop="20dp"
-        android:id="@+id/TextRegister"
+        android:id="@+id/linkToRegister"
         android:layout_width="wrap_content"
         android:lines="1"
         android:layout_height="wrap_content"
@@ -72,7 +72,6 @@
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
         android:text="@string/text_link_register"
-        android:onClick="showRegisterActivity"
         />
 
 </LinearLayout>
